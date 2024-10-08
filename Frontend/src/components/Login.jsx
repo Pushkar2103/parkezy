@@ -1,60 +1,88 @@
-import { Button, Typography } from '@mui/material';
-import Card from '@mui/material/Card';
-import TextField from '@mui/material/TextField';
+import React from 'react';
+import { Button, Typography, Card, TextField, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    const navigator = useNavigate();
+    const navigate = useNavigate();
 
-    return <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection:'column'
-    }}>
-        <Card style={{
-            marginTop:90,
-            width:400,
-            height:250,
-            padding:20,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-        }}>
-            <Typography textAlign={'center'} variant={'h6'} style={{
-                marginBottom:10
-            }}>Login To Parkezy</Typography>
-
-            <TextField id="username" label="Username" variant="outlined" fullWidth style={{
-                marginBottom: 10
-            }} />
-
-            <TextField id="password" label="Password" type='password' variant="outlined" fullWidth />
-
-            <Typography style={{
-                alignSelf:'start',
-                margin:5,
-            }}>
-                Don't have an account?
-                <span onClick={()=> {
-                    navigator('/signup')
+    return (
+        <Box 
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+                height: '80vh',
+            }}
+        >
+            <Card 
+                sx={{
+                    width: 400,
+                    padding: 3,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    boxShadow: 3, 
                 }}
-                style={{
-                    color: 'blue',
-                    marginLeft:5,
-                    cursor: 'pointer',
-                }}>
-                    SignUp!
-                </span>
-            </Typography>
+            >
+                <Typography 
+                    variant="h5" 
+                    align="center" 
+                    sx={{ marginBottom: 2, fontWeight: 'bold' }}
+                >
+                    Login To Parkezy
+                </Typography>
 
-            <Button variant={'contained'} style={{
-                marginBottom:10,
-                marginTop:10
-            }}>Login</Button>
-        </Card>
-    </div>
+                <TextField 
+                    id="username" 
+                    label="Username" 
+                    variant="outlined" 
+                    fullWidth 
+                    sx={{ marginBottom: 2 }} 
+                />
+
+                <TextField 
+                    id="password" 
+                    label="Password" 
+                    type="password" 
+                    variant="outlined" 
+                    fullWidth 
+                    sx={{ marginBottom: 2 }} 
+                />
+
+                <Typography 
+                    sx={{
+                        alignSelf: 'flex-start',
+                        marginBottom: 3,
+                        color: 'text.secondary'
+                    }}
+                >
+                    Don't have an account? 
+                    <span 
+                        onClick={() => navigate('/signup')}
+                        style={{
+                            color: '#1976d2', 
+                            marginLeft: 5,
+                            cursor: 'pointer',
+                            textDecoration: 'underline',
+                        }}
+                    >
+                        Sign Up!
+                    </span>
+                </Typography>
+
+                <Button 
+                    variant="contained" 
+                    color="primary" 
+                    fullWidth 
+                    onClick={() => { 
+                        
+                    }}
+                >
+                    Login
+                </Button>
+            </Card>
+        </Box>
+    );
 }
 
 export default Login;

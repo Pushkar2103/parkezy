@@ -4,5 +4,9 @@
 }
  
 body {
-    background-color: #fbfbfd;
+    background-color: #f5f5ff;
+}
+
+#fav {
+    fill: #f5f5ff;
 }
